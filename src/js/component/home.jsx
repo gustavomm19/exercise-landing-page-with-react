@@ -1,26 +1,44 @@
 import React from "react";
-
-//include images into your bundle
-import rigoImage from "../../img/rigo-baby.jpg";
+import Navbar from "./navbar.jsx";
+import Footer from "./footer.jsx";
+import Jumbotron from "./jumbotron.jsx";
+import Card from "./card.jsx";
 
 //create your first component
 const Home = () => {
-	return (
-		<div className="text-center">
-			<h1 className="text-center mt-5">Hello Rigo!</h1>
-			<p>
-				<img src={rigoImage} />
-			</p>
-			<a href="#" className="btn btn-success">
-				If you see this green button... bootstrap is working...
-			</a>
-			<p>
-				Made by{" "}
-				<a href="http://www.4geeksacademy.com">4Geeks Academy</a>, with
-				love!
-			</p>
-		</div>
-	);
+  const cards = [
+    {
+      title: "Card Title",
+      text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam imperdiet enim a nibh posuere, nec maximus turpis blandit. Vestibulum sit amet suscipit sem.",
+    },
+    {
+      title: "Card Title",
+      text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam imperdiet enim a nibh posuere, nec maximus turpis blandit. Vestibulum sit amet suscipit sem.",
+    },
+    {
+      title: "Card Title",
+      text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam imperdiet enim a nibh posuere, nec maximus turpis blandit. Vestibulum sit amet suscipit sem.",
+    },
+    {
+      title: "Card Title",
+      text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam imperdiet enim a nibh posuere, nec maximus turpis blandit. Vestibulum sit amet suscipit sem.",
+    },
+  ];
+
+  return (
+    <div>
+      <Navbar />
+      <div className="container px-1-sm px-3-md px-5-lg mb-5">
+        <Jumbotron />
+        <div className="container p-0 mt-5 cards-container d-flex flex-wrap justify-content-between">
+          {cards.map((card) => (
+            <Card title={card.title} text={card.text} />
+          ))}
+        </div>
+      </div>
+      <Footer />
+    </div>
+  );
 };
 
 export default Home;
